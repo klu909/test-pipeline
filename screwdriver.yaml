@@ -1,0 +1,11 @@
+shared:
+    image: node:12
+jobs:
+    main:
+        requires: [~pr, ~commit]
+        steps:
+            - validate: echo no-op
+    publish:
+        requires: [main]
+        steps:
+            - publish: echo no-op
