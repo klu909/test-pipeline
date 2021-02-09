@@ -1,5 +1,6 @@
 shared:
     image: node:12
+    sourcePaths: ["!README.md", "!foo.js"]
 jobs:
     main:
         requires: [~pr, ~commit]
