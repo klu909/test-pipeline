@@ -13,3 +13,7 @@ jobs:
         requires: [main]
         steps:
             - publish: echo no-op
+    job3:
+        requires: [~job1, ~job2]
+        steps:
+            - validate: echo no-op
