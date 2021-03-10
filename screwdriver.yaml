@@ -1,12 +1,15 @@
 shared:
     image: node:12
-    sourcePaths: ["!README.md", "!foo.sh"]
 jobs:
     main:
         requires: [~pr, ~commit]
         steps:
             - validate: echo no-op
-    publish:
+    job1:
+        requires: [main]
+        steps:
+            - publish: echo no-op
+    job2:
         requires: [main]
         steps:
             - publish: echo no-op
