@@ -12,7 +12,7 @@ jobs:
     job2:
         requires: [main]
         steps:
-            - publish: sleep 10
+            - publish: echo no-op
     job3:
         requires: [~job1, ~job2]
         steps:
