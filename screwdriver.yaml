@@ -2,18 +2,14 @@ shared:
     image: node:12
 jobs:
     main:
-        requires: [~pr, ~commit]
+        requires: [~commit, ~pr, ~sd@2:main]
+        image: node:12
         steps:
-            - validate: echo no-op
-    job1:
-        requires: [main]
+            - echo: echo $SD_JOB_ID
+    main-2:
+        requires: [~commit, ~pr, ~sd@2:main]
+        image: node:12
         steps:
-            - publish: echo no-op
-    job2:
-        requires: [main]
-        steps:
-            - publish: echo no-op
-    job3:
-        requires: [~job1, ~job2]
-        steps:
-            - validate: echo no-op
+            - echo: |
+                echo $SD_JOB_ID
+                sleep 5
