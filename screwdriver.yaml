@@ -4,4 +4,4 @@ jobs:
     main:
         requires: [~commit, ~pr]
         steps:
-            - echo: return -1
+            - echo: exit 1
