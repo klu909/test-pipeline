@@ -2,14 +2,6 @@ shared:
     image: node:12
 jobs:
     main:
-        requires: [~commit, ~pr, ~sd@2:main]
-        image: node:12
+        requires: [~commit, ~pr]
         steps:
-            - echo: echo $SD_JOB_ID
-    main-2:
-        requires: [~commit, ~pr, ~sd@2:main]
-        image: node:12
-        steps:
-            - echo: |
-                echo $SD_JOB_ID
-                sleep 5
+            - echo: return -1
