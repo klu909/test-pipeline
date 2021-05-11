@@ -12,8 +12,11 @@ jobs:
     job2:
         requires: [main]
         steps:
-            - echo: sleep 20 | exit 1
+            - echo: echo hello
+    job3:
+        steps:
+            - echo: echo hello
     join:
-        requires: [job1, job2]
+        requires: [job1, job2, job3]
         steps:
             - echo: echo hello
