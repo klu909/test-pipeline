@@ -4,4 +4,16 @@ jobs:
     main:
         requires: [~commit, ~pr]
         steps:
+            - echo: echo hello
+    job1:
+        requires: [main]
+        steps:
+            - echo: echo hello
+    job2:
+        requires: [main]
+        steps:
             - echo: exit 1
+    join:
+        requires: [job1, job2]
+        steps:
+            - echo: echo hello
