@@ -12,7 +12,7 @@ jobs:
     job2:
         requires: [main]
         steps:
-            - echo: exit 1
+            - echo: sleep 20 | exit 1
     join:
         requires: [job1, job2]
         steps:
