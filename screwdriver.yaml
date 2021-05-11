@@ -8,15 +8,20 @@ jobs:
     job1:
         requires: [main]
         steps:
-            - echo: echo hello
+            - echo: sleep 10
     job2:
         requires: [main]
         steps:
-            - echo: echo hello
+            - echo: exit 1
     job3:
+        requires: [job1, job2]
+        steps:
+            - echo: echo hello
+    job4:
+        requires: [main]
         steps:
             - echo: echo hello
     join:
-        requires: [job1, job2, job3]
+        requires: [job4, job3]
         steps:
             - echo: echo hello
