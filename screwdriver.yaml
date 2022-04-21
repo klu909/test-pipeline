@@ -4,6 +4,7 @@ jobs:
     main:
         requires: [~commit]
         annotations:
+            screwdriver.cd/collapseBuilds: false
             screwdriver.cd/blockedBySameJob: false
             screwdriver.cd/blockedBySameJobWaitTime: 0
         steps:
