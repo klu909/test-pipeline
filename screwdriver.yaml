@@ -2,26 +2,9 @@ shared:
     image: node:12
 jobs:
     main:
-        requires: [~commit, ~pr]
+        requires: [~commit]
+        annotations:
+            screwdriver.cd/blockedBySameJob: false
+            screwdriver.cd/blockedBySameJobWaitTime: 0
         steps:
-            - echo: echo hello
-#     job1:
-#         requires: [main]
-#         steps:
-#             - echo: sleep 10
-#     job2:
-#         requires: [main]
-#         steps:
-#             - echo: exit 1
-#     job3:
-#         requires: [job1, job2]
-#         steps:
-#             - echo: echo hello
-#     job4:
-#         requires: [main]
-#         steps:
-#             - echo: echo hello
-#     join:
-#         requires: [job4, job3]
-#         steps:
-#             - echo: echo hello
+              - hello: sleep 500
